@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login | Nooraya Quran Academy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#0B3D2E', dark: '#062A20', light: '#155E48' },
+                        gold: { DEFAULT: '#C9A45C', light: '#E5D5A3' },
+                        ivory: '#FAF8F1',
+                        text: '#17211D',
+                        muted: '#6B746E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAF8F1; color: #17211D; font-family: 'Inter', sans-serif; }
+        .btn-gold { background-color: #C9A45C; color: #0B3D2E; padding: 12px 24px; border-radius: 9999px; font-weight: 600; transition: all 0.3s; box-shadow: 0 0 20px rgba(201, 164, 92, 0.4); display: inline-block; }
+        .btn-gold:hover { background-color: #E5D5A3; transform: translateY(-2px); }
+        .form-input { transition: all 0.3s; border: 1px solid rgba(107, 116, 110, 0.2); }
+        .form-input:focus { outline: none; border-color: #C9A45C; box-shadow: 0 0 0 3px rgba(201, 164, 92, 0.2); }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-muted/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <a href="index.html" class="text-2xl font-bold text-primary-dark">Noor<span class="text-gold">aya</span></a>
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="login.html" class="text-sm font-semibold text-muted hover:text-gold transition-colors">Student Login</a>
+                <a href="teacher-login.html" class="text-sm font-bold text-gold">Teacher Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==================== LOGIN SECTION ==================== -->
+    <section class="py-16 md:py-24 bg-ivory flex-grow flex items-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+                
+                <!-- Left Side Image/Branding -->
+                <div class="hidden md:block relative bg-primary-dark p-12 text-white">
+                    <div class="absolute top-0 left-0 w-96 h-96 bg-primary-light rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                    <div class="relative h-full flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-4">Welcome Teacher!</h2>
+                            <p class="text-ivory/70 mb-8">Sign in to view your students, schedules, and update their progress.</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">View Students</h4>
+                                    <p class="text-ivory/50 text-sm">See who enrolled in your courses.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Update Progress</h4>
+                                    <p class="text-ivory/50 text-sm">Track student learning.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-arabic text-3xl text-gold/80 text-right">نورایہ اکیڈمی</p>
+                    </div>
+                </div>
+
+                <!-- Right Side Form -->
+                <div class="p-8 md:p-12">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-primary-dark mb-2">Teacher Login</h2>
+                        <p class="text-muted">Enter your credentials to access the teaching panel.</p>
+                    </div>
+
+<form id="teacher-login-form" class="space-y-6">                      <div>
+                            <label class="block text-sm font-medium text-text mb-2">Email Address</label>
+                            <input type="email" id="teacher-email" required class="form-input w-full px-4 py-3 rounded-xl" placeholder="teacher@nooraya.com" autocomplete="off">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text mb-2">Password</label
+                                ><input type="password" id="teacher-password" required class="form-input w-full px-4 py-3 rounded-xl" placeholder="********" autocomplete="new-password">
+                        </div>
+                        
+                        <button type="submit" id="teacher-login-btn" class="btn-gold w-full text-center text-lg py-4 mt-4">
+                            Login to Dashboard
+                        </button>
+
+                        <div id="teacher-login-message" class="mt-4 text-center"></div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+       <!-- Teacher Login Script -->
+    <script type="module" src="teacher.js"></script>
+</body>
+</html>

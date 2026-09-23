@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | Nooraya Quran Academy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#0B3D2E', dark: '#062A20', light: '#155E48' },
+                        gold: { DEFAULT: '#C9A45C', light: '#E5D5A3' },
+                        ivory: '#FAF8F1',
+                        text: '#17211D',
+                        muted: '#6B746E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAF8F1; color: #17211D; font-family: 'Inter', sans-serif; }
+        .nav-link { display: flex; align-items: center; padding: 12px 16px; border-radius: 12px; color: #FAF8F1; font-weight: 500; transition: all 0.3s; text-decoration: none; }
+        .nav-link:hover { background-color: rgba(201, 164, 92, 0.1); color: #C9A45C; }
+        .nav-link.active { background-color: #C9A45C; color: #062A20; }
+        .card { background-color: #FFFFFF; border-radius: 20px; border: 1px solid rgba(107, 116, 110, 0.05); box-shadow: 0 10px 30px -15px rgba(11, 61, 46, 0.1); }
+    </style>
+</head>
+<body class="flex min-h-screen">
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside id="sidebar" class="fixed lg:sticky top-0 left-0 z-50 h-screen w-64 bg-primary-dark text-white flex flex-col p-4 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+        <div class="flex items-center justify-between mb-8 px-2">
+            <a href="index.html" class="text-2xl font-bold">Teacher Panel</a>
+            <button id="close-sidebar" class="lg:hidden text-ivory/60 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <nav class="flex-grow space-y-2">
+            <a href="teacher-dashboard.html" class="nav-link active">
+                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                My Students
+            </a>
+        </nav>
+
+        <a href="#" id="logout-btn" class="nav-link mt-auto bg-white/5 hover:bg-red-500/20 hover:text-red-400 text-ivory/80">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+            Logout
+        </a>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <div class="flex-1 lg:ml-0 min-h-screen flex flex-col">
+        
+        <!-- Top Bar (Mobile Menu) -->
+        <header class="lg:hidden sticky top-0 z-40 bg-primary-dark text-white p-4 flex items-center justify-between">
+            <span class="text-xl font-bold">Teacher Panel</span>
+            <button id="open-sidebar" class="p-2 text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </header>
+
+        <!-- Dashboard Content -->
+        <main class="flex-grow p-6 md:p-10">
+            
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-primary-dark">My Students</h1>
+                <p class="text-muted mt-1">Here is the list of students enrolled in your courses.</p>
+            </div>
+            <!-- Enrolled Students Table -->
+            <div class="card p-6 md:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-primary-dark">Enrolled Students</h3>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-left">
+                        <thead>
+                            <tr class="border-b border-muted/10 text-muted text-sm">
+                                <th class="py-3 px-4 font-medium">Student Name</th>
+                                <th class="py-3 px-4 font-medium">Course Title</th>
+                                <th class="py-3 px-4 font-medium">Progress (%)</th>
+                                <th class="py-3 px-4 font-medium">Current Lesson</th>
+                                <th class="py-3 px-4 font-medium text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacher-students-body">
+                            <tr>
+                                <td colspan="5" class="py-10 text-center text-muted">Loading students...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Meeting Link Form -->
+            <div class="card p-6 md:p-8 mt-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-primary-dark">Class Meeting Link</h3>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input type="text" id="meeting-link-input" class="form-input flex-grow" placeholder="Paste Zoom or Google Meet link here...">
+                    <button id="save-link-btn" class="btn-gold text-sm whitespace-nowrap">Save Link</button>
+                </div>
+                <div id="link-message" class="mt-2 text-sm"></div>
+            </div>
+    <!-- Mobile Sidebar Toggle Script -->
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        document.getElementById('open-sidebar').addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+        document.getElementById('close-sidebar').addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+    </script>
+    
+    <!-- Teacher Panel Logic Script -->
+    <script type="module" src="teacher.js"></script>
+
+</body>
+</html>

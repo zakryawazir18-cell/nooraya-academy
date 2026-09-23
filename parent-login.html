@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Login | Nooraya Quran Academy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#0B3D2E', dark: '#062A20', light: '#155E48' },
+                        gold: { DEFAULT: '#C9A45C', light: '#E5D5A3' },
+                        ivory: '#FAF8F1',
+                        text: '#17211D',
+                        muted: '#6B746E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAF8F1; color: #17211D; font-family: 'Inter', sans-serif; }
+        .btn-gold { background-color: #C9A45C; color: #0B3D2E; padding: 12px 24px; border-radius: 9999px; font-weight: 600; transition: all 0.3s; box-shadow: 0 0 20px rgba(201, 164, 92, 0.4); display: inline-block; border: none; cursor: pointer; }
+        .btn-gold:hover { background-color: #E5D5A3; transform: translateY(-2px); }
+        .form-input { transition: all 0.3s; border: 1px solid rgba(107, 116, 110, 0.2); width: 100%; padding: 12px 16px; border-radius: 12px; font-size: 14px; }
+        .form-input:focus { outline: none; border-color: #C9A45C; box-shadow: 0 0 0 3px rgba(201, 164, 92, 0.2); }
+        label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-muted/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <a href="index.html" class="text-2xl font-bold text-primary-dark">Noor<span class="text-gold">aya</span></a>
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="login.html" class="text-sm font-semibold text-muted hover:text-gold transition-colors">Student Login</a>
+                <a href="parent-login.html" class="text-sm font-bold text-gold">Parent Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==================== LOGIN SECTION ==================== -->
+    <section class="py-16 md:py-24 bg-ivory flex-grow flex items-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+                
+                <!-- Left Side Image/Branding -->
+                <div class="hidden md:block relative bg-primary-dark p-12 text-white">
+                    <div class="absolute top-0 left-0 w-96 h-96 bg-primary-light rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                    <div class="relative h-full flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-4">Welcome Parent!</h2>
+                            <p class="text-ivory/70 mb-8">Sign in to track your child's progress, attendance, and homework.</p>
+                        </div>
+                        <p class="font-arabic text-3xl text-gold/80 text-right">نورایہ اکیڈمی</p>
+                    </div>
+                </div>
+
+                <!-- Right Side Form -->
+                <div class="p-8 md:p-12">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-primary-dark mb-2">Parent Login</h2>
+                        <p class="text-muted">Enter your credentials to access the parent portal.</p>
+                    </div>
+
+                    <form id="parent-login-form" class="space-y-6">
+                        <div>
+                            <label>Email Address</label>
+                            <input type="email" id="parent-login-email" required class="form-input" placeholder="you@example.com" autocomplete="off">
+                        </div>
+                        <div>
+                            <label>Password</label>
+                            <input type="password" id="parent-login-password" required class="form-input" placeholder="********" autocomplete="new-password">
+                        </div>
+                        
+                        <button type="submit" id="parent-login-btn" class="btn-gold w-full text-center text-lg py-4 mt-4">
+                            Login to Dashboard
+                        </button>
+
+                        <div id="parent-login-message" class="mt-4 text-center"></div>
+                        
+                        <p class="text-center text-muted text-sm mt-6">
+                            Don't have an account? <a href="parent-register.html" class="text-primary font-semibold hover:text-gold transition-colors">Register Here</a>
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Parent Auth Script -->
+    <script type="module" src="parent.js"></script>
+
+</body>
+</html>

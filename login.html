@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | Nooraya Quran Academy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#0B3D2E', dark: '#062A20', light: '#155E48' },
+                        gold: { DEFAULT: '#C9A45C', light: '#E5D5A3' },
+                        ivory: '#FAF8F1',
+                        text: '#17211D',
+                        muted: '#6B746E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAF8F1; color: #17211D; font-family: 'Inter', sans-serif; }
+        .btn-gold { background-color: #C9A45C; color: #0B3D2E; padding: 12px 24px; border-radius: 9999px; font-weight: 600; transition: all 0.3s; box-shadow: 0 0 20px rgba(201, 164, 92, 0.4); display: inline-block; }
+        .btn-gold:hover { background-color: #E5D5A3; transform: translateY(-2px); }
+        .btn-outline { border: 2px solid rgba(11, 61, 46, 0.2); color: #0B3D2E; padding: 12px 24px; border-radius: 9999px; font-weight: 600; transition: all 0.3s; display: inline-block; }
+        .btn-outline:hover { background-color: #0B3D2E; color: white; }
+        .form-input { transition: all 0.3s; border: 1px solid rgba(107, 116, 110, 0.2); }
+        .form-input:focus { outline: none; border-color: #C9A45C; box-shadow: 0 0 0 3px rgba(201, 164, 92, 0.2); }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-muted/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <a href="index.html" class="text-2xl font-bold text-primary-dark">Noor<span class="text-gold">aya</span></a>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Home</a>
+                <a href="courses.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Courses</a>
+                <a href="fee-structure.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Fee Structure</a>
+                <a href="about.html" class="text-sm font-medium text-text hover:text-gold transition-colors">About Us</a>
+                <a href="contact.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Contact</a>
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="login.html" class="text-sm font-bold text-gold">Student Login</a> <!-- Active -->
+                <a href="free-trial.html" class="btn-gold text-sm">Book Free Trial</a>
+            </div>
+            <button id="menu-btn" class="lg:hidden p-2 text-primary" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-muted/10 px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Home</a>
+            <a href="courses.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Courses</a>
+            <a href="fee-structure.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Fee Structure</a>
+            <a href="about.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">About Us</a>
+            <a href="contact.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Contact</a>
+            <a href="free-trial.html" class="btn-gold w-full text-center mt-2">Book Free Trial</a>
+        </div>
+    </header>
+
+    <!-- ==================== LOGIN SECTION ==================== -->
+    <section class="py-16 md:py-24 bg-ivory flex-grow flex items-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+                
+                <!-- Left Side Image/Branding -->
+                <div class="hidden md:block relative bg-primary-dark p-12 text-white">
+                    <div class="absolute top-0 left-0 w-96 h-96 bg-primary-light rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                    <div class="relative h-full flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-4">Welcome Back!</h2>
+                            <p class="text-ivory/70 mb-8">Continue your journey of learning the Quran. Your next lesson is waiting for you.</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Track Progress</h4>
+                                    <p class="text-ivory/50 text-sm">See how far you've come.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Class Schedule</h4>
+                                    <p class="text-ivory/50 text-sm">Never miss a class.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-arabic text-3xl text-gold/80 text-right">نورایہ اکیڈمی</p>
+                    </div>
+                </div>
+<!-- Right Side Form -->
+<div class="p-8 md:p-12">
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-primary-dark mb-2">Student Login</h2>
+        <p class="text-muted">Enter your credentials to access your dashboard.</p>
+    </div>
+
+    <!-- Naya Form Tag (ID add ki gayi hai) -->
+    <form id="login-form" action="dashboard.html" method="POST" class="space-y-6">
+        <div>
+            <label class="block text-sm font-medium text-text mb-2">Email Address</label>
+            <input type="email" id="login-email" required class="form-input w-full px-4 py-3 rounded-xl" placeholder="you@example.com">
+        </div>
+        <div>
+            <div class="flex items-center justify-between mb-2">
+                <label class="block text-sm font-medium text-text">Password</label>
+                <a href="#" class="text-sm text-gold hover:underline">Forgot Password?</a>
+            </div>
+            <input type="password" id="login-password" required class="form-input w-full px-4 py-3 rounded-xl" placeholder="********">
+        </div>
+        
+        <div class="flex items-center">
+            <input type="checkbox" class="h-4 w-4 text-gold border-muted rounded focus:ring-gold" id="remember">
+            <label for="remember" class="ml-2 text-sm text-muted">Remember me on this device</label>
+        </div>
+
+        <!-- Button me ID add ki gayi hai -->
+        <button type="submit" id="login-submit-btn" class="btn-gold w-full text-center text-lg py-4 mt-4">
+            Login to Dashboard
+        </button>
+
+        <!-- Error ya Success message ke liye ye div lagaya hai -->
+        <div id="login-message" class="mt-4 text-center"></div>
+
+        <p class="text-center text-muted text-sm mt-6">
+            Don't have an account? <a href="register.html" class="text-primary font-semibold hover:text-gold transition-colors">Register Here</a>
+        </p>
+    </form>
+</div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-primary-dark text-ivory pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <h3 class="text-white text-xl mb-4">Noor<span class="text-gold">aya</span></h3>
+                <p class="text-ivory/60 text-sm leading-relaxed">Premium online Quran academy for kids and adults. Learn from the comfort of your home.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-ivory/60">
+                    <li><a href="about.html" class="hover:text-gold">About Us</a></li>
+                    <li><a href="courses.html" class="hover:text-gold">Our Courses</a></li>
+                    <li><a href="fee-structure.html" class="hover:text-gold">Fee Structure</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Support</h4>
+                <ul class="space-y-2 text-sm text-ivory/60">
+                    <li><a href="contact.html" class="hover:text-gold">Contact Us</a></li>
+                    <li><a href="register.html" class="hover:text-gold">Register</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Contact Info</h4>
+                <p class="text-ivory/60 text-sm">Email: info@nooraya.com</p>
+                <p class="text-ivory/60 text-sm">Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <div class="border-t border-ivory/10 pt-8 text-center text-ivory/40 text-sm max-w-7xl mx-auto px-4">
+            © 2024 Nooraya Quran Academy. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- ==================== WHATSAPP FLOATING WIDGET ==================== -->
+    <a href="https://wa.me/923001234567" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.644-.182-.065-.315-.099-.445.099-.133.197-.513.644-.629.775-.114.131-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.131-.198.198-.33.065-.132.033-.246-.015-.346-.049-.099-.445-1.076-.612-1.471-.164-.389-.329-.334-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.246c-.182.198-.692.677-.692 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.417.475.152.904.129 1.246.08.38-.058 1.171-.479 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <    <!-- Supabase Auth Script Link -->
+    <script type="module" src="auth.js"></script>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

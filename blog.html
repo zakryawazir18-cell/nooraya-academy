@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Resources | Nooraya Quran Academy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#0B3D2E', dark: '#062A20', light: '#155E48' },
+                        gold: { DEFAULT: '#C9A45C', light: '#E5D5A3' },
+                        ivory: '#FAF8F1',
+                        text: '#17211D',
+                        muted: '#6B746E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAF8F1; color: #17211D; font-family: 'Inter', sans-serif; }
+        .btn-gold { background-color: #C9A45C; color: #0B3D2E; padding: 12px 24px; border-radius: 9999px; font-weight: 600; transition: all 0.3s; box-shadow: 0 0 20px rgba(201, 164, 92, 0.4); display: inline-block; }
+        .btn-gold:hover { background-color: #E5D5A3; transform: translateY(-2px); }
+        .btn-outline { border: 2px solid rgba(11, 61, 46, 0.2); color: #0B3D2E; padding: 12px 24px; border-radius: 9999px; font-weight: 600; transition: all 0.3s; display: inline-block; }
+        .btn-outline:hover { background-color: #0B3D2E; color: white; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-muted/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <a href="index.html" class="text-2xl font-bold text-primary-dark">Noor<span class="text-gold">aya</span></a>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Home</a>
+                <a href="courses.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Courses</a>
+                <a href="fee-structure.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Fee Structure</a>
+                <a href="about.html" class="text-sm font-medium text-text hover:text-gold transition-colors">About Us</a>
+                <a href="contact.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Contact</a>
+                <!-- Added Blog Link to Desktop -->
+                <a href="blog.html" class="text-sm font-bold text-gold">Blog</a> 
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="login.html" class="text-sm font-semibold text-primary hover:text-gold transition-colors">Student Login</a>
+                <a href="free-trial.html" class="btn-gold text-sm">Book Free Trial</a>
+            </div>
+            <button id="menu-btn" class="lg:hidden p-2 text-primary" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-muted/10 px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Home</a>
+            <a href="courses.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Courses</a>
+            <a href="fee-structure.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Fee Structure</a>
+            <a href="about.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">About Us</a>
+            <a href="contact.html" class="block px-3 py-2 text-base font-medium hover:bg-ivory rounded-lg">Contact</a>
+            <a href="blog.html" class="block px-3 py-2 text-base font-medium text-gold bg-ivory rounded-lg">Blog</a>
+            <a href="free-trial.html" class="btn-gold w-full text-center mt-2">Book Free Trial</a>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HEADER ==================== -->
+    <section class="bg-primary-dark py-16 md:py-24 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-light rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wide text-gold uppercase bg-gold/10 rounded-full border border-gold/20">Islamic Learning Resources</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Nooraya Academy Blog</h1>
+            <p class="text-lg text-ivory/70 max-w-2xl mx-auto">Articles, tips, and guides to help you and your family on your Quranic journey.</p>
+        </div>
+    </section>
+
+    <!-- ==================== BLOG GRID ==================== -->
+    <section class="py-20 bg-ivory flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Featured Post (Large) -->
+            <div class="mb-16 bg-white rounded-3xl shadow-lg overflow-hidden grid grid-cols-1 lg:grid-cols-2 group">
+                <div class="relative h-64 lg:h-auto overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1604881991720-f91add269c94?q=80&w=800&auto=format&fit=crop" alt="Featured Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent"></div>
+                </div>
+                <div class="p-8 md:p-12 flex flex-col justify-center">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-xs font-semibold text-white bg-gold px-3 py-1 rounded-full">Featured</span>
+                        <span class="text-sm text-muted">October 20, 2024</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary-dark mb-4">The Importance of Tajweed: Why Pronunciation Matters in Quran Recitation</h2>
+                    <p class="text-muted mb-6">Understanding the rules of Tajweed is essential for reciting the Quran correctly. In this article, we explore the history of Tajweed and how it preserves the beauty of the Quranic text...</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-gold font-bold">N</div>
+                        <div>
+                            <p class="text-sm font-semibold text-text">Nooraya Team</p>
+                            <p class="text-xs text-muted">5 min read</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Posts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/5 hover:-translate-y-2 overflow-hidden flex flex-col group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591456983933-9c1f9f5c3a3f?q=80&w=600&auto=format&fit=crop" alt="Kids Quran" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <span class="text-xs font-semibold text-gold uppercase tracking-wide mb-2">Kids Learning</span>
+                        <h3 class="text-lg font-bold text-primary-dark mb-2">5 Tips to Make Quran Learning Fun for Kids</h3>
+                        <p class="text-muted text-sm mb-4 flex-grow">Discover practical strategies to keep your children engaged and excited about learning the Quran every day.</p>
+                        <a href="#" class="text-sm font-semibold text-primary hover:text-gold transition-colors">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/5 hover:-translate-y-2 overflow-hidden flex flex-col group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?q=80&w=600&auto=format&fit=crop" alt="Memorization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <span class="text-xs font-semibold text-gold uppercase tracking-wide mb-2">Hifz / Memorization</span>
+                        <h3 class="text-lg font-bold text-primary-dark mb-2">How to Build a Daily Hifz Revision Schedule</h3>
+                        <p class="text-muted text-sm mb-4 flex-grow">Memorizing is only half the battle. Learn how to structure your daily revision to retain what you've learned.</p>
+                        <a href="#" class="text-sm font-semibold text-primary hover:text-gold transition-colors">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/5 hover:-translate-y-2 overflow-hidden flex flex-col group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=600&auto=format&fit=crop" alt="Islamic Studies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <span class="text-xs font-semibold text-gold uppercase tracking-wide mb-2">Islamic Studies</span>
+                        <h3 class="text-lg font-bold text-primary-dark mb-2">Understanding the Seerah: Life of Prophet Muhammad (PBUH)</h3>
+                        <p class="text-muted text-sm mb-4 flex-grow">A brief introduction to the Seerah and why teaching it to our children is crucial in today's world.</p>
+                        <a href="#" class="text-sm font-semibold text-primary hover:text-gold transition-colors">Read More →</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-primary-dark text-ivory pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <h3 class="text-white text-xl mb-4">Noor<span class="text-gold">aya</span></h3>
+                <p class="text-ivory/60 text-sm leading-relaxed">Premium online Quran academy for kids and adults. Learn from the comfort of your home.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-ivory/60">
+                    <li><a href="about.html" class="hover:text-gold">About Us</a></li>
+                    <li><a href="courses.html" class="hover:text-gold">Our Courses</a></li>
+                    <li><a href="fee-structure.html" class="hover:text-gold">Fee Structure</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2 text-sm text-ivory/60">
+                    <li><a href="blog.html" class="hover:text-gold">Blog</a></li>
+                    <li><a href="faq.html" class="hover:text-gold">FAQs</a></li>
+                    <li><a href="contact.html" class="hover:text-gold">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Contact Info</h4>
+                <p class="text-ivory/60 text-sm">Email: info@nooraya.com</p>
+                <p class="text-ivory/60 text-sm">Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <div class="border-t border-ivory/10 pt-8 text-center text-ivory/40 text-sm max-w-7xl mx-auto px-4">
+            © 2024 Nooraya Quran Academy. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- ==================== WHATSAPP FLOATING WIDGET ==================== -->
+    <a href="https://wa.me/923001234567" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.644-.182-.065-.315-.099-.445.099-.133.197-.513.644-.629.775-.114.131-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.131-.198.198-.33.065-.132.033-.246-.015-.346-.049-.099-.445-1.076-.612-1.471-.164-.389-.329-.334-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.246c-.182.198-.692.677-.692 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.417.475.152.904.129 1.246.08.38-.058 1.171-.479 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
