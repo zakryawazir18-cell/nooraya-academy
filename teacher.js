@@ -52,18 +52,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const studentsTableBody = document.getElementById('teacher-students-body');
     
     if (studentsTableBody && session) {
-        // 1. Enrollments fetch karna
         const { data: enrollments, error } = await supabase
             .from('enrollments')
             .select('*')
             .order('created_at', { ascending: false });
 
-        // 2. Students table se names fetch karna
         const { data: studentsList } = await supabase
             .from('students')
             .select('email, full_name');
 
-        // 3. Email se Name match karne ki dictionary banana
         const studentNames = {};
         if (studentsList) {
             studentsList.forEach(s => {
@@ -72,9 +69,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (error) {
-            studentsTableBody.innerHTML = `<tr><td colspan="5" class="py-10 text-center text-red-500">Error loading data.</td></tr>`;
+            studentsTableBody.innerHTML = `<tr><td colspan="7" class="py-10 text-center text-red-500">Error loading data.</td></tr>`;
         } else if (enrollments.length === 0) {
-            studentsTableBody.innerHTML = `<tr><td colspan="5" class="py-10 text-center text-muted">No students enrolled yet.</td></tr>`;
+            studentsTableBody.innerHTML = `<tr><td colspan="7" class="py-10 text-center text-muted">No students enrolled yet.</td></tr>`;
         } else {
             studentsTableBody.innerHTML = enrollments.map(enrollment => {
                 const displayName = studentNames[enrollment.student_email] || enrollment.student_email;
@@ -90,7 +87,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <input type="number" id="progress-${enrollment.id}" value="${enrollment.progress || 0}" class="form-input w-20 px-2 py-1 rounded-lg text-center" min="0" max="100">
                         </td>
                         <td class="py-4 px-4">
-                            <input type="text" id="lesson-${enrollment.id}" value="${enrollment.current_lesson || ''}" class="form-input w-full px-2 py-1 rounded-lg" placeholder="e.g., Surah Al-Baqarah Ayah 1-5">
+                            <input type="text" id="lesson-${enrollment.id}" value="${enrollment.current_lesson || ''}" class="form-input w-full px-2 py-1 rounded-lg" placeholder="Surah Al-Baqarah">
+                        </td>
+                        <td class="py-4 px-4">
+                            <input type="text" id="day-${enrollment.id}" value="${enrollment.class_day || ''}" class="form-input w-full px-2 py-1 rounded-lg" placeholder="Monday">
+                        </td>
+                        <td class="py-4 px-4">
+                            <input type="text" id="time-${enrollment.id}" value="${enrollment.class_time || ''}" class="form-input w-full px-2 py-1 rounded-lg" placeholder="4:00 PM">
                         </td>
                         <td class="py-4 px-4 text-right">
                             <button onclick="updateProgress(${enrollment.id})" class="btn-gold text-xs py-2 px-4">Save</button>
@@ -115,25 +118,34 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // ==========================================
-// 4. UPDATE PROGRESS & LESSON FUNCTION (Global)
+// 4. UPDATE PROGRESS, LESSON & SCHEDULE FUNCTION (Global)
 // ==========================================
 window.updateProgress = async (enrollmentId) => {
     const progressInput = document.getElementById(`progress-${enrollmentId}`);
     const lessonInput = document.getElementById(`lesson-${enrollmentId}`);
+    const dayInput = document.getElementById(`day-${enrollmentId}`);
+    const timeInput = document.getElementById(`time-${enrollmentId}`);
     
     if (!progressInput) return;
 
     const newProgress = parseInt(progressInput.value);
     const newLesson = lessonInput ? lessonInput.value : '';
+    const newDay = dayInput ? dayInput.value : '';
+    const newTime = timeInput ? timeInput.value : '';
     
     const { error } = await supabase
         .from('enrollments')
-        .update({ progress: newProgress, current_lesson: newLesson })
+        .update({ 
+            progress: newProgress, 
+            current_lesson: newLesson,
+            class_day: newDay,
+            class_time: newTime
+        })
         .eq('id', enrollmentId);
 
     if (error) {
         alert('Error updating data: ' + error.message);
     } else {
-        alert('Progress and lesson updated successfully!');
+        alert('Schedule and progress updated successfully!');
     }
 };

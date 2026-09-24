@@ -172,7 +172,39 @@
                     <div id="course-message" class="md:col-span-2 mt-2 text-center"></div>
                 </form>
             </div>
-
+            <!-- Add New Teacher Form -->
+            <div class="card p-6 md:p-8 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-primary-dark">Add New Teacher</h3>
+                </div>
+                
+                <form id="add-teacher-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label>Full Name</label>
+                        <input type="text" id="teacher-full-name" required class="form-input" placeholder="e.g. Ustadh Yusuf">
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" id="teacher-email-input" required class="form-input" placeholder="teacher@nooraya.com">
+                    </div>
+                    <div>
+                        <label>Specialization</label>
+                        <input type="text" id="teacher-specialization" required class="form-input" placeholder="e.g. Tajweed & Hifz">
+                    </div>
+                    <div>
+                        <label>Image URL (Supabase Storage Link)</label>
+                        <input type="text" id="teacher-image-url" required class="form-input" placeholder="https://...supabase.co/storage/v1/object/public/...">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label>Short Bio</label>
+                        <textarea id="teacher-bio" rows="3" required class="form-input" placeholder="Al-Azhar University graduate with a passion for teaching."></textarea>
+                    </div>
+                    <div class="md:col-span-2 text-right">
+                        <button type="submit" id="add-teacher-btn" class="btn-gold text-sm">Add Teacher</button>
+                    </div>
+                    <div id="teacher-message" class="md:col-span-2 mt-2 text-center"></div>
+                </form>
+            </div>
             <!-- Recent Trial Requests Table -->
             <div class="card p-6 md:p-8 mb-8">
                 <div class="flex items-center justify-between mb-6">

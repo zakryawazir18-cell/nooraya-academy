@@ -180,6 +180,46 @@ document.addEventListener('DOMContentLoaded', async () => {
             }).join('');
         }
     }
+            // ==========================================
+    // 8. ADD NEW TEACHER LOGIC
+    // ==========================================
+    const addTeacherForm = document.getElementById('add-teacher-form');
+    if (addTeacherForm) {
+        addTeacherForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('teacher-full-name').value;
+            const email = document.getElementById('teacher-email-input').value;
+            const specialization = document.getElementById('teacher-specialization').value;
+            const imageUrl = document.getElementById('teacher-image-url').value;
+            const bio = document.getElementById('teacher-bio').value;
+            
+            const submitBtn = document.getElementById('add-teacher-btn');
+            const messageDiv = document.getElementById('teacher-message');
+            
+            submitBtn.innerText = 'Adding...';
+            submitBtn.disabled = true;
+            
+            const { data, error } = await supabase
+                .from('teachers')
+                .insert([
+                    { full_name: fullName, email: email, specialization: specialization, image_url: imageUrl, bio: bio }
+                ]);
+                
+            if (error) {
+                messageDiv.textContent = "Error: " + error.message;
+                messageDiv.className = 'text-red-500 text-sm mt-2 font-medium';
+                submitBtn.innerText = 'Add Teacher';
+                submitBtn.disabled = false;
+            } else {
+                messageDiv.textContent = "Teacher added successfully! It will show on the About Us page.";
+                messageDiv.className = 'text-green-600 text-sm mt-2 font-medium';
+                addTeacherForm.reset();
+                submitBtn.innerText = 'Add Teacher';
+                submitBtn.disabled = false;
+            }
+        });
+    }
         // ==========================================
     // 7. ACTIVE TEACHERS COUNT LANA
     // ==========================================
