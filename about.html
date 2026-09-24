@@ -51,7 +51,7 @@
                 <a href="index.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Home</a>
                 <a href="courses.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Courses</a>
                 <a href="fee-structure.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Fee Structure</a>
-                <a href="about.html" class="text-sm font-bold text-gold">About Us</a> <!-- Active -->
+                <a href="about.html" class="text-sm font-bold text-gold">About Us</a>
                 <a href="contact.html" class="text-sm font-medium text-text hover:text-gold transition-colors">Contact</a>
             </div>
             <div class="hidden lg:flex items-center gap-4">
@@ -106,65 +106,16 @@
                 </div>
             </div>
 
-            <!-- ==================== TEACHERS PROFILES ==================== -->
+            <!-- ==================== TEACHERS PROFILES (Dynamic) ==================== -->
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-gold font-semibold tracking-wide uppercase text-sm">Meet Our Team</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4 text-primary-dark">Our Expert Teachers</h2>
                 <p class="text-muted text-lg">Learn from certified, experienced, and patient instructors dedicated to your success.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Teacher Card 1 -->
-                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/5 hover:-translate-y-2 overflow-hidden text-center group">
-                    <div class="relative h-56 bg-primary-dark overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f34?q=80&w=600&auto=format&fit=crop" alt="Teacher Ustadha Aisha" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark to-transparent opacity-60"></div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-bold text-primary-dark">Ustadha Aisha</h4>
-                        <p class="text-gold text-sm font-semibold mb-2">Hifz & Tajweed Expert</p>
-                        <p class="text-muted text-sm">10+ years of experience teaching kids and adults globally.</p>
-                    </div>
-                </div>
-
-                <!-- Teacher Card 2 -->
-                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/5 hover:-translate-y-2 overflow-hidden text-center group">
-                    <div class="relative h-56 bg-primary-dark overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=600&auto=format&fit=crop" alt="Teacher Ustadh Yusuf" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark to-transparent opacity-60"></div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-bold text-primary-dark">Ustadh Yusuf</h4>
-                        <p class="text-gold text-sm font-semibold mb-2">Tafsir & Arabic Teacher</p>
-                        <p class="text-muted text-sm">Al-Azhar University graduate with a passion for teaching.</p>
-                    </div>
-                </div>
-
-                <!-- Teacher Card 3 -->
-                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/5 hover:-translate-y-2 overflow-hidden text-center group">
-                    <div class="relative h-56 bg-primary-dark overflow-hidden">
-                        <img src="https://images.unsplash.com/photo/1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop" alt="Teacher Ustadha Fatima" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark to-transparent opacity-60"></div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-bold text-primary-dark">Ustadha Fatima</h4>
-                        <p class="text-gold text-sm font-semibold mb-2">Kids Quran Specialist</p>
-                        <p class="text-muted text-sm">Friendly and patient, making learning fun for young kids.</p>
-                    </div>
-                </div>
-
-                <!-- Teacher Card 4 -->
-                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-muted/5 hover:-translate-y-2 overflow-hidden text-center group">
-                    <div class="relative h-56 bg-primary-dark overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?q=80&w=600&auto=format&fit=crop" alt="Teacher Ustadh Ibrahim" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark to-transparent opacity-60"></div>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-lg font-bold text-primary-dark">Ustadh Ibrahim</h4>
-                        <p class="text-gold text-sm font-semibold mb-2">Islamic Studies Scholar</p>
-                        <p class="text-muted text-sm">Expert in Fiqh, Hadith, and Seerah for all age groups.</p>
-                    </div>
-                </div>
+            <!-- یہاں JavaScript کے ذریعے اساتذہ خودکار آئیں گے -->
+            <div id="teachers-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center text-muted col-span-full py-10">Loading teachers...</div>
             </div>
 
         </div>
@@ -175,7 +126,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             <div>
                 <h3 class="text-white text-xl mb-4">Noor<span class="text-gold">aya</span></h3>
-                <p class="text-ivory/60 text-sm leading-relaxed">Premium online Quran academy for kids and adults. Learn from the comfort of your home.</p>
+                <p class="text-ivory/60 text-sm leading-relaxed">Premium online Quran academy for students of all ages. Learn from the comfort of your home.</p>
             </div>
             <div>
                 <h4 class="text-white font-semibold mb-4">Quick Links</h4>
@@ -210,6 +161,10 @@
         </svg>
     </a>
 
+    <!-- About Us Page Logic Script -->
+    <script type="module" src="about.js"></script>
+
+    <!-- Mobile Menu Toggle Script -->
     <script>
         document.getElementById('menu-btn').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
